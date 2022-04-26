@@ -12,11 +12,20 @@ public class Seo {
 
     private double calculatePoints(Website webSite){
         int keywordsNumber = webSite.getKeywordsSize();
-        double points = (visitorCounter.get(webSite) + 1.0) * (keywordsNumber * keywordsNumber + 1);
+        double points;
+
+        if (visitorCounter.get(webSite) != null)
+            points = (visitorCounter.get(webSite) + 1.0) * (keywordsNumber * keywordsNumber + 1);
+        else
+            points = (0 + 1.0) * (keywordsNumber * keywordsNumber + 1);
+
+        if (errorCounter.get(webSite) == null)
+            return points;
+
         return points / errorCounter.get(webSite);
     }
 
-    public String consoleInput() {
+    private String consoleInput() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
@@ -25,7 +34,7 @@ public class Seo {
         String substring = consoleInput();
         List<Website> webSites = server.filter(substring);
 
-        webSites.sort(Comparator.comparing(this::calculatePoints));
+        webSites.sort(Comparator.comparingDouble(this::calculatePoints));
 
         return webSites;
     }

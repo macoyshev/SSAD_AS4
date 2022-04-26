@@ -1,11 +1,12 @@
 package com.team11;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /** Class perform standards CRUD operations under website entity */
 public class WebsiteCRUD implements CRUD<Website> {
 
-  List<Website> webSites;
+  List<Website> webSites = new ArrayList<>();
 
   /**
    * @param entry to delete from the database

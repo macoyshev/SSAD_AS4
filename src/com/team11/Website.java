@@ -35,4 +35,12 @@ class Website {
     return title;
   }
 
+  @Override
+  public String toString() {
+    return "Website{" +
+            "url='" + url + '\'' +
+            ", title='" + title + '\'' +
+            ", keywords=" + keywords +
+            '}';
+  }
 }
