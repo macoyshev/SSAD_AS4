@@ -31,5 +31,9 @@ public class Server {
 
     return response;
   }
+
+  public void setWebsiteRepository(CRUD<Website> websiteRepository) {
+    this.websiteRepository = websiteRepository;
+  }
 }
 

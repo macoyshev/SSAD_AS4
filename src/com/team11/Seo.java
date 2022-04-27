@@ -38,5 +38,13 @@ public class Seo {
 
         return webSites;
     }
+
+    public void addVisit(Website website, int count) {
+        visitorCounter.put(website, visitorCounter.get(website) + count);
+    }
+
+    public void addError(Website website, int count) {
+        errorCounter.put(website, errorCounter.get(website) + count);
+    }
 }
 
